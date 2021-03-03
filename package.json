@@ -10,8 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct03-static-types-functions-alu0101254678.git"
   },
+  "type": "module",
   "keywords": [],
-  "author": "",
+  "author": "Yago Pérez Molanes",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct03-static-types-functions-alu0101254678/issues"
