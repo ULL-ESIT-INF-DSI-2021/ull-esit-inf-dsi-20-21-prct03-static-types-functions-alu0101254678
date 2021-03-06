@@ -1,29 +1,44 @@
-"use strict";
-let cadena = '3hey5hello2hiiiii';
-// let cadena_1: string = ((cadena.split(/[0-9]/g)).toString()).trim();
-let vector_cad = ((cadena.split(/[0-9]/g)).splice(1));
-let vector_num = (cadena.split(/[a-z]/g)).filter((word) => word.length >= 1);
-console.log(`${vector_cad}`);
-console.log(`${vector_num}`);
-let centinela = true;
-let tamanio_car = 0;
-console.log(`${vector_num.length}`);
-let indice_general = 0;
-for (let indice = 0; indice < vector_num.length; indice++) {
-    tamanio_car = vector_cad[indice].length;
-    console.log(`${tamanio_car}`);
-    //console.log(`${vector_cad[indice]}`);
-    console.log((parseInt(vector_num[indice])));
-    //console.log(vector_num[indice]);
-    if ((parseInt(vector_num[indice])) != tamanio_car) {
-        centinela = false;
+/*
+  Funcion que calcula el factorial de un numero
+*/
+export function factorial(dato) {
+    let r = 1;
+    for (let i = dato; i > 0; i--) {
+        r *= i;
     }
-    else {
-        centinela = false;
-    }
-    console.log((parseInt(vector_num[indice])) != tamanio_car);
-    // centinela = true;
-    indice_general++;
+    return r;
 }
-console.log(`${centinela}`);
-console.log(`${indice_general}`);
+/*
+  Funcion que calcula el decimal de un factorial
+*/
+export function factorialToDecimal(numero) {
+    const iCantidad = 0;
+    let iTemp = numero;
+    let iTemporal = 0;
+    let res = 0;
+    for (let indice = 0; indice < numero.toString().length; indice++) {
+        if (indice === 0) {
+            iTemporal = iTemp % 10;
+            res += iTemporal * factorial(indice);
+        }
+        else {
+            iTemp = Math.trunc(iTemp / 10);
+            iTemporal = iTemp % 10;
+            res += iTemporal * factorial(indice);
+        }
+    }
+    return numero;
+}
+/*
+  Funcion que calcula el factorial de un decimal, lo devuelve como un vector
+*/
+export function decimalToFactorial(n, vector_aux) {
+    const digitos = [];
+    for (let i = vector_aux.length - 1; i >= 0; i--) {
+        digitos.unshift(n % vector_aux[i]);
+        n = Math.floor(n / vector_aux[i]);
+    }
+    return digitos;
+}
+console.log(factorialToDecimal(341010));
+console.log(decimalToFactorial(463, [6, 5, 4, 3, 2, 1]));

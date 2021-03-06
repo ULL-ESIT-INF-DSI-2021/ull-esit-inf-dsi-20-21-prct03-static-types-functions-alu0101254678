@@ -1,5 +1,5 @@
 /*
-    Funcion que calcula si un año es bisiesto
+  Funcion que calcula si un año es bisiesto
 */
 
 export function isLeapYear(anio_inicio: number): boolean {

@@ -1,9 +1,8 @@
 "use strict";
+/*
+  Funcion que averigua si un ISBN dado es valido o no
+*/
 function isValidISBN(cadena) {
-    /* if (cadena.search(/['-']/g) != 0) {
-      // cadena.replace(/[-]/g, '');
-      console.log(cadena.replace(/[-]/g, ''));
-    }*/
     cadena = cadena.replace(/[-]/g, '');
     // cadena = cadena.replace(/['x' || 'X']/g, '10');
     console.log(`${cadena}`);
@@ -35,5 +34,7 @@ function isValidISBN(cadena) {
         return false;
     }
 }
-let cadena_ej = '3-598-21507-X';
-console.log(isValidISBN(cadena_ej));
+let cadena_ej_1 = '3-598-21507-X';
+console.log(isValidISBN(cadena_ej_1));
+let cadena_ej_2 = '3-598-21506-X';
+console.log(isValidISBN(cadena_ej_2));

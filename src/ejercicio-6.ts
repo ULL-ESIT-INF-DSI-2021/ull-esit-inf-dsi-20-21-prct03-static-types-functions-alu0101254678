@@ -1,9 +1,8 @@
-function isValidISBN(cadena: string): boolean {
-  /* if (cadena.search(/['-']/g) != 0) {
-    // cadena.replace(/[-]/g, '');
-    console.log(cadena.replace(/[-]/g, ''));
-  }*/
+/*
+  Funcion que averigua si un ISBN dado es valido o no
+*/
 
+function isValidISBN(cadena: string): boolean {
   cadena = cadena.replace(/[-]/g, '');
   // cadena = cadena.replace(/['x' || 'X']/g, '10');
 
@@ -34,7 +33,7 @@ function isValidISBN(cadena: string): boolean {
     // console.log(`${resultado}`);
     indice_Aux++;
   }
-  
+
   if (resultado % 11 === 0) {
     return true;
   } else {
@@ -42,5 +41,9 @@ function isValidISBN(cadena: string): boolean {
   }
 }
 
-let cadena_ej: string = '3-598-21507-X';
-console.log(isValidISBN(cadena_ej));
+let cadena_ej_1: string = '3-598-21507-X';
+console.log(isValidISBN(cadena_ej_1));
+
+let cadena_ej_2: string = '3-598-21506-X';
+console.log(isValidISBN(cadena_ej_2));
+

@@ -1,8 +1,6 @@
-// let cadena_1: string = 'Beard Jeans Hairbrush Knuckleduster Sand';
-// let vector_c: Array<string> = cadena_1.split(" ");
-// console.log( ((((vector_c.sort()).toString()).replace(/[e || a]/g, '')).toString()) );
-// let cadena_aux: string = ((((vector_c.sort()).toString()).replace(/[e || a]/g, '')).toString());
-// console.log(cadena_aux.replace(/[,]/g, ' '));
+/*
+  Funcion de Chuck Norris, debe ser escrita en una linea de codigo
+*/
 export function onePunch(cadena) { if (cadena.length === 0) {
     return 'Broken!';
 }
