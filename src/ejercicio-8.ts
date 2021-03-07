@@ -1,3 +1,7 @@
+/*
+  Funcion que devuelve el numero de direcciones IP dentro de un rango
+*/
+
 /* function zfill(number: number, width: number) {
   const numberOutput = Math.abs(number); /* Valor absoluto del número
   const length = number.toString().length; /* Largo del número
@@ -61,22 +65,14 @@ function binTodecimal(binstr: string){
   }, 0);
 }*/
 
-function IPtoNum(ip: string) {
-  return Number(
-      ip.split('.')
-          .map((d) => ('00000000'+d).substr(-8) )
-          .join(''),
-  );
-}
-
-/*function ip2int(ip): number {
+/* function ip2int(ip): number {
   return ip.split('.').reduce(function(ipInt: number, octet: number) { return (ipInt<<8) + parseInt(octet, 10)}, 0) >>> 0;
 }
 
 let ip_1: string = '192.188.1.1';
 console.log(IPtoNum(ip_1));*/
 
-function convertIpToNumeric(ipAddress: string) {
+export function convertIpToNumeric(ipAddress: string) {
   let arrIp = ipAddress.split('.');
 
   let segment1: number = parseInt(arrIp[0]);
@@ -84,42 +80,45 @@ function convertIpToNumeric(ipAddress: string) {
   let segment3: number = parseInt(arrIp[2]);
   let segment4: number = parseInt(arrIp[3]);
 
-  //reverse order calc 
-  //eg. 255.255.240.0     &lt;-- start at the end
+  // reverse order calc 
+  // eg. 255.255.240.0     &lt;-- start at the end
   // 0 + (240*256) + (255*65536) + (255*16777216)
   let calc: number = segment4 + (segment3 * 256) + (segment2 * 65536) + (segment1 * 16777216);
 
   return calc;
-
 }
 
 /* function convertNumericToIp(bigNumber) {
- 
-  var Octet1 = Math.floor(bigNumber / 16777216)
-  var RestOfIP = bigNumber - (Octet1 * 16777216)
 
-  var Octet2 = Math.floor(RestOfIP / 65536)
-  var RestOfIP = RestOfIP - (Octet2 * 65536)
+  let Octet1 = Math.floor(bigNumber / 16777216)
+  let RestOfIP = bigNumber - (Octet1 * 16777216)
 
-  var Octet3 = Math.floor(RestOfIP / 256)
+  let Octet2 = Math.floor(RestOfIP / 65536)
+  let RestOfIP = RestOfIP - (Octet2 * 65536)
+
+  let Octet3 = Math.floor(RestOfIP / 256)
        
-  var Octet4 = RestOfIP - (Octet3 * 256)
+  let Octet4 = RestOfIP - (Octet3 * 256)
 
-  var returnValue = Octet1 + &quot;.&quot; + Octet2 + &quot;.&quot; + Octet3 + &quot;.&quot; + Octet4; 
+  let returnValue = Octet1 + &quot;.&quot; + Octet2 + &quot;.&quot; + Octet3 + &quot;.&quot; + Octet4; 
 
   return returnValue;
 
 }*/
 
-let ip_1: string = '20.0.0.10';
-let ip_2: string = '20.0.1.0';
+export function ipsInRange(ip_1: string, ip_2: string) {
+  // console.log(convertIpToNumeric(ip_1));
+  // console.log(convertIpToNumeric(ip_2));
 
-console.log(convertIpToNumeric(ip_1));
-console.log(convertIpToNumeric(ip_2));
+  let ip_1_decimal:number = convertIpToNumeric(ip_1);
+  let ip_2_decimal:number = convertIpToNumeric(ip_2);
 
-let ip_1_decimal:number = convertIpToNumeric(ip_1);
-let ip_2_decimal:number = convertIpToNumeric(ip_2);
+  let resultado_final: number = ip_2_decimal - ip_1_decimal;
 
-let resultado_final: number = ip_2_decimal - ip_1_decimal;
+  console.log(`${resultado_final}`);
+}
 
-console.log(`${resultado_final}`);
+ipsInRange('20.0.0.10', '20.0.1.0');
+ipsInRange('10.0.0.0', '10.0.0.50');
+ipsInRange('10.0.0.0', '10.0.1.0');
+
