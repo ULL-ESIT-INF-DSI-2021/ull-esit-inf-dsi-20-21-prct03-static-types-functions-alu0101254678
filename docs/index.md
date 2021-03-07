@@ -166,17 +166,6 @@ function isValid(cadena: string): boolean {
   return centinela;
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
 ## __Ejercicio-4: Conversor de estilo__
 Este ejercicio consiste en hacer una transformación como sucedía en alguno de los ejercicios anteriores, sin embargo tiene que ver con los
 estilos de escritura.
@@ -184,10 +173,18 @@ estilos de escritura.
 El stilo *Snake* se usa en la declaración de variables, nombres, en el contexto de la programación, y se basa en escribir guiones entre las
 palabras para delimitarlas, por ejemplo, __snake_case__ sería un ejemplo.
 
+
 Por otro lado, el estilo *Camel*, no usa ninguna clase de giones y por su parte, emplea las mayúsculas para delimitar las palabras, por 
 ejemplo, __camelCase__ sería un ejemplo.
 
 Entonces, el objetivo consiste en crear dos funciones que realicen una "traducción" de un estilo a otro, se exponen a contiuación.
+
+
+
+
+
+
+
 ```
 /*
   Funcion que pasa de estilo snake a estilo camel
