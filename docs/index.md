@@ -206,11 +206,143 @@ function camelToSnake(string: string) {
 ```
 
 ## __Ejercicio-5: Un solo golpe__
+Este peculiar ejercicio consiste en recibir una cadena de texto, y transformarla atendiendo a las exigencias del poderoso *Chuck Norris*.
+Estas son sus exigencias:
+* Las cadenas deben estar separadas.
+* Además deben estar ordenadas por orden alfabético.
+* Todas las apariciones de las letras *a* y *e* deben desaparecer.
 
+Si la función recibe como entrada una cadena vacía, esta devuelve *Broken!*, Chuck Norris no estará contento.
 
+Por último, la función solo debe escribirse en una línea de código, desafiando a las reglas de estilo, pero recordemos que no debemos 
+enfadar a Chuck Norris.
+```
+export function onePunch(cadena: string): string { if (cadena.length === 0){ return 'Broken!'; } else return (((((cadena.split(" ")).sort()).toString()).replace(/[e || a]/g, '')).toString()).replace(/[,]/g, ' '); }
+```
 
+## __Ejercicio-6: Conversor de ISBN__
+En este ejercicio hemos de comprobar la validez de un ISBN, que recordamos que corresponde a un identificador de un libro u obra.
 
+El formato ISBN-10 está compuesto por 9 dígitos (0-9) y un caracter de comprobación que puede ser un dígito (0-9) o una X. En caso de que el caracter de comprobación sea una X, se representa con el valor ‘10. Estos valores su pueden comunicar con o sin guiones, y se puede comprobar su validez con la siguiente fórmula:
 
+```
+(x1 * 10 + x2 * 9 + x3 * 8 + x4 * 7 + x5 * 6 + x6 * 5 + x7 * 4 + x8 * 3 + x9 * 2 + x10 * 1) mod 11 == 0
+
+```
+
+Si el resultado es 0, entonces el código ISBN es válido.
+
+Por lo tanto, en la función se ha de contemplar los guiones e ignorarlos, así como el carácter X, que realmente tiene el valor 10.
+```
+/*
+  Funcion que averigua si un ISBN dado es valido o no
+*/
+
+function isValidISBN(cadena: string): boolean {
+  cadena = cadena.replace(/[-]/g, '');
+  // cadena = cadena.replace(/['x' || 'X']/g, '10');
+
+  console.log(`${cadena}`);
+
+  let tamanio: number = cadena.length;
+
+  // console.log(`${tamanio}`);
+
+  let indice_Aux: number = 1;
+  let resultado: number = 0;
+
+  let letra_a_Numero: number = 0;
+
+  let caracter_Aux: string;
+
+  for (let indice: number = tamanio - 1; indice >= 0; indice--) {
+    // console.log(cadena[indice]);
+    caracter_Aux = cadena[indice];
+    if (caracter_Aux === 'x' || caracter_Aux === 'X') {
+      letra_a_Numero = 10;
+    } else {
+      letra_a_Numero = parseInt(caracter_Aux);
+    }
+    // letra_a_Numero = parseInt(caracter_Aux);
+    // console.log(parseInt(caracter_Aux));
+    resultado += letra_a_Numero * indice_Aux;
+    // console.log(`${resultado}`);
+    indice_Aux++;
+  }
+
+  if (resultado % 11 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+```
+Con un bucle vamos obteniendo los valores de la cadena, y realizando la operación anterior, con el módulo, y tenemos que saber si 
+el resultado es 0, u otro valor, en otro caso devolverá falso.
+
+## __Ejercicio-7: El siguiente número__
+En este ejercicio creamos una función que recibe como parámetro un entero positivo y devuelve el siguiente número mayor que pueda
+ser formado al reposicionar sus dígitos:
+
+Por ejemplo:
+* 12 –> 21
+* 513 –> 531
+* 2017 –> 2071
+
+En el caso de que no se pueda obtener un número mayor al reposicionar sus dígitos, la función devolverá -1:
+* 9 –> -1
+* 111 –> -1
+* 531 –> -1
+
+```
+/*
+  Funcion que calcula el siguiente numero mayor que se forma al reposicionar
+  sus digitos
+*/
+
+function the_Next_Number(numero: number): number {
+  let intermedio_resto: number = 0;
+  let intermedio_division: number = 0;
+
+  let resultado_intermedio: number = 0;
+
+  if (numero.toString().length === 1) {
+    return -1;
+  }
+  if (numero.toString().length === 2) {
+    intermedio_resto = numero % 10;
+    intermedio_division = Math.trunc(numero / 10);
+    // console.log(intermedio_resto);
+    // console.log(intermedio_division);
+    // console.log(`${numero}`);
+    // console.log(parseInt(intermedio_resto.toString() + intermedio_division.toString()));
+
+    if ( (parseInt(intermedio_resto.toString() + intermedio_division.toString())) > numero) {
+      return parseInt(intermedio_resto.toString() + intermedio_division.toString());
+    } else {
+      return -1;
+    }
+  } else {
+    intermedio_resto = numero % 10;
+    intermedio_division = ( (Math.trunc(numero / 10)) % 10);
+    // console.log(`${intermedio_resto}`);
+    // console.log(`${intermedio_division}`);
+
+    // console.log(`${numero % 100}`);
+
+    if ( (parseInt(intermedio_resto.toString() + intermedio_division.toString())) > (numero % 100) ) {
+      let numero_auxiliar: number = parseInt(intermedio_resto.toString() + intermedio_division.toString());
+      // console.log(`${numero_auxiliar}`);
+      let cifras_menos_dos: number = Math.trunc(numero/100);
+      // console.log(`${cifras_menos_dos}`);
+
+      return parseInt( ( cifras_menos_dos.toString() + numero_auxiliar.toString()) );
+    } else {
+      return -1;
+    }
+  }
+}
+```
 
 ## __Ejercicio-8: Contando IPs__
 En este ejercicio tenemos que trabajar con cadenas de texto, que representan direcciones IP:
@@ -386,5 +518,36 @@ export function isValidUsername(cadena: string): boolean {
 ```
 
 ## __Conclusiones__
-hola
+El desarollo de la práctica nos ha servido para conocer algunos de los fundamentos en los que se basa el leguaje TypeScript,así
+como aprender a manejar conceptos clave como lo son las variables y las funciones.
+
+Como dificultades podemos nombrar que el entendimiento de algunos de los algoritmos resultó más complicado que otros, como por ejemplo
+el ejercicio de los factoriales y decimales, así como el de las direcciones IP, por otro lado, destacamos que los recursos que otorga el
+profesorado son muy útiles.
+
+Sin embargo no se ha podido realizar una lectura eficaz de los mismos como gustaría.
+
+Otro problema que encontramos, aunque menor, es entender la estructura básica del proyecto,y aplicar correctamente los conceptos.
+
 ## __Bibliografía__
+
+* ¿Cómo se estructura un proyecto TypeScript?:
+
+<https://ull-esit-inf-dsi-2021.github.io/typescript-theory/typescript-project-setup.html>
+
+El enlace anterior lleva a una página creada por el profesor de la asignatura que nos ayuda a entender y a realizar un proyecto.
+
+* Tutorial sobre los métodos que se pueden usar con __*string*__:
+
+<https://www.w3schools.com/js/js_string_methods.asp>
+
+Como fundamentalmente trabajamos con cadenas de texto, es interesante destacar los métodos que ayudan a trabajar con ellos, en
+esta práctica se usan varios de ellos.
+
+* Expresiones regulares en JavaScript:
+
+<https://www.w3schools.com/js/js_regexp.asp>
+
+En este enlace se aprenden los fundamentos relacionados con las expresiones regulares que se usan en  algunos apartados de los 
+ejercicios.
+
