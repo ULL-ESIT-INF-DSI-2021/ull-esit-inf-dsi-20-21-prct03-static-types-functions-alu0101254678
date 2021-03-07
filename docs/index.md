@@ -129,7 +129,7 @@ La función devolverá verdadero o falso según corresponda.
 * Los números pueden tener varios dígitos.
 * Cada número debe corresponder a la longitud de la cadena de texto que se encuentra a continuación.
 * La cadena vacía se considera un mensaje válido.
-```typescript
+```
 /*
   Funcion que valida un mensaje de varias subcadenas, los valores de los
   numeros deben ser iguales al tamano de los caracteres que les acompanan
@@ -166,6 +166,17 @@ function isValid(cadena: string): boolean {
   return centinela;
 }
 ```
+
+
+
+
+
+
+
+
+
+
+
 ## __Ejercicio-4: Conversor de estilo__
 Este ejercicio consiste en hacer una transformación como sucedía en alguno de los ejercicios anteriores, sin embargo tiene que ver con los
 estilos de escritura.
