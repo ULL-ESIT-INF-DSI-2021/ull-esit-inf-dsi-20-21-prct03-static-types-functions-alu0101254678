@@ -130,6 +130,83 @@ La función devolverá verdadero o falso según corresponda.
 * Cada número debe corresponder a la longitud de la cadena de texto que se encuentra a continuación.
 * La cadena vacía se considera un mensaje válido.
 
+```
+/*
+  Funcion que valida un mensaje de varias subcadenas, los valores de los
+  numeros deben ser iguales al tamano de los caracteres que les acompanan
+*/
+
+function isValid(cadena: string): boolean {
+  const vector_cad: Array<string> = ((cadena.split(/[0-9]/g)).splice(1));
+
+  const vector_num: Array<string> = (cadena.split(/[a-z]/g)).filter((word) => word.length >= 1);
+
+
+  let centinela: boolean = true;
+
+  let tamanio_car: number = 0;
+
+
+  let indice_general: number = 0;
+
+  for (let indice = 0; indice < vector_num.length; indice ++) {
+    tamanio_car = vector_cad[indice].length;
+
+    if ((parseInt(vector_num[indice])) != tamanio_car) {
+      centinela = false;
+      console.log(`La cadena es `);
+      return false;
+    } else {
+      centinela = true;
+    }
+    // console.log((parseInt(vector_num[indice])) != tamanio_car);
+    indice_general++;
+  }
+
+  console.log(`La cadena es `);
+  return centinela;
+}
+```
+
+## __Ejercicio-4: Conversor de estilo__
+Este ejercicio consiste en hacer una transformación como sucedía en alguno de los ejercicios anteriores, sin embargo tiene que ver con los
+estilos de escritura.
+
+El estilo *Snake* se usa en la declaración de variables, nombres, en el contexto de la programación, y se basa en escribir guiones entre las
+palabras para delimitarlas, por ejemplo, __snake_case__ sería un ejemplo.
+
+Por otro lado, el estilo *Camel*, no usa ninguna clase de giones y por su parte, emplea las mayúsculas para delimitar las palabras, por 
+ejemplo, __camelCase__ sería un ejemplo.
+
+Entonces, el objetivo consiste en crear dos funciones que realicen una "traducción" de un estilo a otro, se exponen a contiuación.
+
+```
+/*
+  Funcion que pasa de estilo snake a estilo camel
+*/
+
+function snakeToCamel(string: string) {
+  return string.replace(/(_\w)/g, function(m: string) {
+    return m[1].toUpperCase();
+  });
+}
+```
+
+Como vemos tenemos que sustituir los guiones bajos por las mayúsculas, y viceversa para la función que origina una cadena *Snake*:
+```
+/*
+  Funcion que pasa de estilo camel a estilo snake
+*/
+
+function camelToSnake(string: string) {
+  return string.replace(/[\w]([A-Z])/g, function(m: string) {
+    return m[0] + "_" + m[1];
+  }).toLowerCase();
+}
+```
+
+## __Ejercicio-5: Un solo golpe__
+
 
 
 
