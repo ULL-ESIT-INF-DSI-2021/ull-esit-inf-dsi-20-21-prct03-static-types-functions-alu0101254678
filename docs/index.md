@@ -12,11 +12,11 @@ __*Pasos realizados para el desarrollo de la práctica*__
 En esta práctica conoceremos como se usan las funciones y los tipos de datos estáticos en el lenguaje TypeScript, a través de una serie
 ejercicios que se proponen a continuación.
 
-El código fuente se aloja en el repositorio dentro del directorio */src*, con la extensión *.ts*, y el identificador del ejercicio
+El código fuente se aloja en el repositorio dentro del directorio */src*, con la extensión *.ts*, y el identificador del ejercicio.
 
 Pasaremos a explicar brevemente la resolución de dichos ejercicios.
 
-## __Ejercicio-1:Años Bisiestos__
+## __Ejercicio-1: Años bisiestos__
 En este ejercicio creamos una función que sirve para calcular si un año determinado es bisiesto o no, para ello seguimos estas tres reglas:
 1. Cada año tiene que ser divisible por 4.
 2. Dicho año no puede ser divisible por 100.
@@ -114,7 +114,7 @@ export function decimalToFactorial(n: number, vector_aux: Array<number>): Array<
 ```
 Cabe aclarar, que devuelve el valor, como un vector, y en la función tenemos que especificar, dichos índices.
 
-## __Validador de mensajes__
+## __Ejercicio-3: Validador de mensajes__
 Este ejercicio consiste en validar un mensaje determinado, que viene de la forma *XSubcadena1YSubcadena2*, en donde *X* e *Y* son números
 y *Subcadena1* y *Subcadena2* son cadenas de texto. Para decidir si el mensaje es válido, dividimos en subcadenas, de números y letras, y para
 cada subcadena numérica, hemos de encontrar la cadena de texto que tenga el mismo tamaño que el número anterior.
@@ -129,7 +129,7 @@ La función devolverá verdadero o falso según corresponda.
 * Los números pueden tener varios dígitos.
 * Cada número debe corresponder a la longitud de la cadena de texto que se encuentra a continuación.
 * La cadena vacía se considera un mensaje válido.
-```
+```typescript
 /*
   Funcion que valida un mensaje de varias subcadenas, los valores de los
   numeros deben ser iguales al tamano de los caracteres que les acompanan
