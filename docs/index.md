@@ -44,7 +44,7 @@ export function isLeapYear(anio_inicio: number): boolean {
 ```
 ## __Ejercicio-2: Notación decimal y factorial__
 En este ejercicio creamos varias funciones, por un lado, una que nos permite transformar un número que se encuentra en notación decimal, a otro que
-se encuentra en notación factorial,__decimalToFactorial__, y otra función que hará la transformación inversa,__factorialToDecimal__ ,es decir, dado 
+se encuentra en notación factorial, __decimalToFactorial__, y otra función que hará la transformación inversa, __factorialToDecimal__ , es decir, dado 
 un número de entrada en notación factorial, devuelve su representación en forma decimal.
 
 La función __factorialToDecimal__, así como __decimalToFactorial__, se apoyan en el sigueinte principio, como ejemplo:
@@ -537,7 +537,7 @@ Otro problema que encontramos, aunque menor, es entender la estructura básica d
 
 El enlace anterior lleva a una página creada por el profesor de la asignatura que nos ayuda a entender y a realizar un proyecto.
 
-* Tutorial sobre los métodos que se pueden usar con __*string*__:
+* Tutorial sobre los métodos que se pueden usar con *string*:
 
 <https://www.w3schools.com/js/js_string_methods.asp>
 
